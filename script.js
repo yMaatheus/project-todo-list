@@ -15,4 +15,13 @@ function loadButton() {
     });
 }
 
+function loadTaskList() {
+    taskList.addEventListener("click", changeBackgroundColorListener);
+}
+
+function changeBackgroundColorListener(event) {
+    event.target.style.backgroundColor = "rgb(128, 128, 128)";
+}
+
 loadButton();
+loadTaskList();
