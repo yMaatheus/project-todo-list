@@ -20,7 +20,23 @@ function loadTaskList() {
 }
 
 function changeBackgroundColorListener(event) {
-    event.target.style.backgroundColor = "rgb(128, 128, 128)";
+    const element = event.target;
+    if (element === document.querySelector(".selected")) {
+        return;
+    }
+    resetSelect();
+    element.style.backgroundColor = "rgb(128, 128, 128)";
+    element.classList.add("selected");
+}
+
+function resetSelect() {
+    const selecteds = document.getElementsByClassName("selected");
+    if (selecteds.length > 0) {
+        for (let selected of selecteds) {
+            selected.style.backgroundColor = "white";
+            selected.classList.remove("selected");
+        }
+    }
 }
 
 loadButton();
