@@ -16,7 +16,19 @@ function loadButton() {
 }
 
 function loadTaskList() {
+    taskList.addEventListener("dblclick", completeListItemListener)
     taskList.addEventListener("click", changeBackgroundColorListener);
+}
+
+function completeListItemListener(event) {
+    const element = event.target;
+    if (!element.classList.contains("completed")) {
+        element.style.textDecoration = "line-through";
+        element.classList.add("completed");
+        return;
+    }
+    element.classList.remove("completed");
+    element.style.textDecoration = "none";
 }
 
 function changeBackgroundColorListener(event) {
