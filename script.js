@@ -2,7 +2,7 @@ const taskInput = document.querySelector("#texto-tarefa");
 const taskList = document.querySelector("#lista-tarefas");
 const taskButton = document.querySelector("#criar-tarefa");
 
-function loadButton() {
+function loadButtonCreateTasks() {
     taskButton.addEventListener("click", function () {
         if (taskInput.value === "") {
             return;
@@ -51,5 +51,18 @@ function resetSelect() {
     }
 }
 
-loadButton();
+function loadClearButton() {
+    const button = document.querySelector("#apaga-tudo");
+    button.addEventListener("click", clearAllTasks);
+}
+
+function clearAllTasks() {
+    for (let index = taskList.childNodes.length -1; index >= 0; index -= 1) {
+        const li = taskList.childNodes[index];
+        li.remove();
+    }
+}
+
+loadButtonCreateTasks();
 loadTaskList();
+loadClearButton();
