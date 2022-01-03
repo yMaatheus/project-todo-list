@@ -63,6 +63,21 @@ function clearAllTasks() {
     }
 }
 
+function loadButtonClearTasksEnded() {
+    const button = document.querySelector("#remover-finalizados");
+    button.addEventListener("click", clearEndedTasks);
+}
+
+function clearEndedTasks() {
+    for (let index = taskList.childNodes.length -1; index >= 0; index -= 1) {
+        const li = taskList.childNodes[index];
+        if (li.classList.contains("completed")) {
+            li.remove();
+        }
+    }
+}
+
 loadButtonCreateTasks();
 loadTaskList();
 loadClearButton();
+loadButtonClearTasksEnded();
