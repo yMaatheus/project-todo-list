@@ -1,3 +1,3 @@
-# Projeto Lista de Tarefas
+# Lista de Tarefas
 
 ![exemplo](./todo-list.gif)
